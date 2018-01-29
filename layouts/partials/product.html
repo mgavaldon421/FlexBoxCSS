@@ -1,0 +1,14 @@
+<section class="card">
+  <div>
+    <img src="{{ .image }}" alt="{{ .name }}">
+  </div>
+
+  <div class="text">
+    <h3>{{ .name }}</h3>
+    <p>{{ .description }}</p>
+    <button class="snipcart-add-item" data-item-id="{{ .id }}" data-item-name="{{ .name }}" data-item-price="{{ .price }}" data-item-url="{{ .url }}">
+                    <i class="material-icons">shopping_cart</i>
+                    Add to cart
+            </button>
+  </div>
+</section>
