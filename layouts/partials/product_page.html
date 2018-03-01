@@ -1,0 +1,28 @@
+
+
+
+
+<section class="card">
+
+  
+{{ with .Resources.GetMatch "image" }}
+
+  {{ $image := .Resize "600x" }}
+  <img src="{{ $image.RelPermalink }}" width="100%">
+
+{{ end }}
+  
+
+  <div class="text">
+    <h3>{{ .Params.name }}</h3>
+    <p>{{ .Params.description }}</p>
+     <p><strong>${{ .Params.price }}</strong> USD, free shipping for continental U.S. orders. Please call for international or non-continental orders.</p>
+    <button data-turbolinks="false" class="snipcart-add-item" data-item-id="{{ .Params.pid }}" 
+            data-item-name="{{ .Params.name }}" 
+            data-item-price="{{ .Params.price }}" 
+            data-item-url="/{{ .Parent.Dir }}">
+                    <i class="material-icons">shopping_cart</i>
+                    Add to cart
+            </button>
+  </div>
+</section>

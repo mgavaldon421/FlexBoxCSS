@@ -1,6 +1,8 @@
- {{ partial "header" . }}
+<!--  {{ partial "header" . }} -->
 
 
+
+{{ define "main"}}
 <section class="container vertical center">
   <div>
     <h2>
@@ -24,7 +26,7 @@
   
   {{ range $products }} {{ partial "product.html" . }} {{ end }}
 </div>
+{{end}}
 
 
-
-{{ partial "footer" . }}
+<!-- {{ partial "footer" . }} -->

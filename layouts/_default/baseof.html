@@ -11,8 +11,15 @@
 <!--   <link id="snipcart-theme" type="text/css" href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700|Roboto:300,400,900" rel="stylesheet">
-  <!-- Any of your own CSS would go here -->  
   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+
+<link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
+
+<!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/page-accelerator/0.1.1/page-accelerator.min.js"></script> -->
+  <!-- Any of your own CSS would go here -->  
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.1.1/turbolinks.js" integrity="sha256-L06fzo/4G4oD7dGuNySdAWCxTFN2wkj0GrFTnWKdKBo=" crossorigin="anonymous"></script> -->
   <style>
     
     html {
@@ -45,7 +52,7 @@ body {
     padding:1em;
   }
     section.container p {
-      margin: 0 1em;
+      margin: 0 1em 1em;
     }
     section.container.vertical {
       display: flex;
@@ -106,10 +113,10 @@ nav ul {
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  border-top: 3px solid #c4a64a;
+/*   border-top: 3px solid #c4a64a; */
   border-bottom: 3px solid #c4a64a;
   max-width: 100%;
-  width: 800px;
+/*   width: 800px; */
 }
 
 nav ul li {
@@ -143,7 +150,7 @@ nav {
   position: sticky !important;
   position: -webkit-sticky !important;
   top: 0; /* required */
-  background: red;
+  background: #ffffeb;
 }
 
 @media screen and (min-width: 700px) {
@@ -235,7 +242,8 @@ nav {
 }
  .pimg1{
   background-image:url('/images/cover.jpg');
-  min-height:80%;
+  min-height:10%;
+   max-height: 33%;
 }
     body, html{
   height:100%;
@@ -248,7 +256,6 @@ nav {
 }
     .ptext{
   position:relative;
-  padding-top:50%;
   width:100%;
   text-align:center;
   color:#000;
@@ -276,7 +283,10 @@ nav {
   .ptext {display:hidden;}
 }
     
-
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
     
   
 </style></head><body>
@@ -292,16 +302,63 @@ nav {
     </div>
   </div>
   
-  <header id="header" class="container">
-    <div class="logo"><img class="w-full" src="{{ $.Site.Params.logo }}" /></div>
-   </header>
-  
-  <nav>
-    <ul>
-      <li><a href="#">HOME</a></li>
-      <li><a href="http://edwardmontgomeryfineart.com/artists/captainkenny_neizman/index.html">OIL PAINTING</a></li>
-<!--       <li><a href="#">Contact&nbsp;Us</a></li> -->
-      <li class="snipcart-summary"><a href="#" class="snipcart-checkout"><i class="material-icons">shopping_cart</i>cart (<span class="snipcart-total-items">0</span>) </a></li>
-    </ul>
-  </nav>
+<nav> 
+  <ul>
+     {{ range .Site.Menus.mainmenu }}
+  <li> <a href="{{ .URL }}" title="{{ .Name }}">
+      {{- .Name -}}
+
+    </a></li>
+     {{ end }}
+    <li class="snipcart-summary"><a href="#" class="snipcart-checkout"><i class="material-icons">shopping_cart</i>cart&nbsp;(<span class="snipcart-total-items">0</span>) </a></li>
+</ul>
+ 
    
+ 
+</nav>
+    
+  
+  
+{{ block "main" . }}
+      <!-- The part of the page that begins to differ between templates -->
+  <section class="container">
+    <p>
+      © All content on this site is protected by copyright of Edward Montgomery Fine Art. Neither redistribution nor reproduction of visual and/or written content is permitted without the prior expressed written consent of Edward Montgomery Fine Art.
+    </p>
+  </section>
+  {{.Content}}
+  {{ end }}
+ 
+<!--  <header id="header" class="container">
+    <div class="logo"><img class="w-full" src="{{ $.Site.Params.logo }}" /></div>
+   </header> -->
+<footer class="container">
+  <p>Edward Montgomery Fine Art</p>
+  <p>Dolores Street 4SW Ocean Avenue ~ P.O. Box AH ~ Carmel-by-the-Sea, California  93921</p>
+  <p>(831) 622-9292 | email: <a href="mailto:emfa@redshift.com">emfa@redshift.com</a></p>
+</footer>
+  
+  
+
+<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="ZGQ3ZWNlYjItOTQwMy00NmFlLTk2NDgtMzRhZjQ2N2I0OGJmNjM2NDkzOTY4ODMyNTMwOTAx"></script>
+
+
+<!-- <noscript id="deferred-styles">
+      <link rel="stylesheet" type="text/css" href="small.css"/>
+    </noscript>
+    <script>
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+      var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+          window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+    </script> -->
+</body>
+
+</html>
