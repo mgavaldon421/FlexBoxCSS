@@ -1,0 +1,17 @@
+<section class="card">
+
+  
+{{ with .Resources.GetMatch "image" }}
+
+  {{ $image := .Resize "600x" }}
+  <img src="{{ $image.RelPermalink }}" width="100%">
+
+{{ end }}
+  
+
+  <div class="text">
+    <h3><A href="{{ .Permalink }}">{{ .Params.title }}</A></h3>
+    <p>{{ .Params.description }}</p>
+    
+  </div>
+</section>

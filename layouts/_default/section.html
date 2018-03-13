@@ -2,14 +2,16 @@
 {{ define "main" }}
 <section class="container">
 <header>
-  <h2>{{ .Title }}</h2>
+  <h2>{{ .Title }} section.html!!!</h2>
+  
+  {{ .Kind }}
 </header>
   <main>
-      {{ .Content }}
      
-          {{ range .Paginator.Pages }}
+          {{ range .Sections }}
       
-                 {{ partial "product_page.html" . }}
+          
+                 {{ partial "artist.html" . }}
     
       
           {{ end }}
